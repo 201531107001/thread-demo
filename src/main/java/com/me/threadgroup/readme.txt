@@ -1,19 +1,19 @@
-Ïß³Ì×éĞÅÏ¢µÄ»ñÈ¡
-public int activeCount(); // »ñµÃµ±Ç°Ïß³Ì×éÖĞÏß³ÌÊıÄ¿£¬ °üÀ¨¿ÉÔËĞĞºÍ²»¿ÉÔËĞĞµÄ
-public int activeGroupCount()£» //»ñµÃµ±Ç°Ïß³Ì×éÖĞ»î¶¯µÄ×ÓÏß³Ì×éµÄÊıÄ¿
-public int enumerate£¨Thread list[]£©; //ÁĞ¾Ùµ±Ç°Ïß³Ì×éÖĞµÄÏß³Ì
-public int enumerate£¨ThreadGroup list[]£©£» //ÁĞ¾Ùµ±Ç°Ïß³Ì×éÖĞµÄ×ÓÏß³Ì×é
-public final int getMaxPriority£¨£©; //»ñµÃµ±Ç°Ïß³Ì×éÖĞ×î´óÓÅÏÈ¼¶
-public final String getName£¨£©£» //»ñµÃµ±Ç°Ïß³Ì×éµÄÃû×Ö
-public final ThreadGroup getParent£¨£©; //»ñµÃµ±Ç°Ïß³Ì×éµÄ¸¸Ïß³Ì×é
-public boolean parentOf£¨ThreadGroup g£©£» //ÅĞ¶Ïµ±Ç°Ïß³Ì×éÊÇ·ñÎªÖ¸¶¨Ïß³ÌµÄ¸¸Ïß³Ì
-public boolean isDaemon£¨£©; //ÅĞ¶Ïµ±Ç°Ïß³Ì×éÖĞÊÇ·ñÓĞ¼à»¤Ïß³Ì
-public void list£¨£©; //ÁĞ³öµ±Ç°Ïß³Ì×éÖĞËùÓĞÏß³ÌºÍ×ÓÏß³ÌÃû
+çº¿ç¨‹ç»„ä¿¡æ¯çš„è·å–
+public int activeCount(); // è·å¾—å½“å‰çº¿ç¨‹ç»„ä¸­çº¿ç¨‹æ•°ç›®ï¼Œ åŒ…æ‹¬å¯è¿è¡Œå’Œä¸å¯è¿è¡Œçš„
+public int activeGroupCount()ï¼› //è·å¾—å½“å‰çº¿ç¨‹ç»„ä¸­æ´»åŠ¨çš„å­çº¿ç¨‹ç»„çš„æ•°ç›®
+public int enumerateï¼ˆThread list[]ï¼‰; //åˆ—ä¸¾å½“å‰çº¿ç¨‹ç»„ä¸­çš„çº¿ç¨‹
+public int enumerateï¼ˆThreadGroup list[]ï¼‰ï¼› //åˆ—ä¸¾å½“å‰çº¿ç¨‹ç»„ä¸­çš„å­çº¿ç¨‹ç»„
+public final int getMaxPriorityï¼ˆï¼‰; //è·å¾—å½“å‰çº¿ç¨‹ç»„ä¸­æœ€å¤§ä¼˜å…ˆçº§
+public final String getNameï¼ˆï¼‰ï¼› //è·å¾—å½“å‰çº¿ç¨‹ç»„çš„åå­—
+public final ThreadGroup getParentï¼ˆï¼‰; //è·å¾—å½“å‰çº¿ç¨‹ç»„çš„çˆ¶çº¿ç¨‹ç»„
+public boolean parentOfï¼ˆThreadGroup gï¼‰ï¼› //åˆ¤æ–­å½“å‰çº¿ç¨‹ç»„æ˜¯å¦ä¸ºæŒ‡å®šçº¿ç¨‹çš„çˆ¶çº¿ç¨‹
+public boolean isDaemonï¼ˆï¼‰; //åˆ¤æ–­å½“å‰çº¿ç¨‹ç»„ä¸­æ˜¯å¦æœ‰ç›‘æŠ¤çº¿ç¨‹
+public void listï¼ˆï¼‰; //åˆ—å‡ºå½“å‰çº¿ç¨‹ç»„ä¸­æ‰€æœ‰çº¿ç¨‹å’Œå­çº¿ç¨‹å
 
-Ïß³Ì×éµÄ²Ù×÷
-public final void resume£¨£©£» //Ê¹±»¹ÒÆğµÄµ±Ç°×éÄÚµÄÏß³Ì»Ö¸´µ½¿ÉÔËĞĞ×´Ì¬
-public final void setDaemon (boolean daemon); //Ö¸¶¨Ò»¸öÏß³ÌÎªµ±Ç°Ïß³Ì×éµÄ¼à»¤Ïß³Ì
-public final void setMaxPriority£¨int pri£©£» //ÉèÖÃµ±Ç°Ïß³Ì×éÔÊĞíµÄ×î´óÓÅÏÈ¼¶
-public final void stop£¨£©£»//ÖÕÖ¹µ±Ç°Ïß³Ì×éÖĞËùÓĞÏß³Ì
-public final void suspend£¨£©; //¹ÒÆğµ±Ç°Ïß³Ì×éÖĞËùÓĞÏß³Ì
-public String toStrinng£¨£©; //½«µ±Ç°Ïß³Ì×é×ª»»ÎªStringÀàµÄ¶ÔÏó
+çº¿ç¨‹ç»„çš„æ“ä½œ
+public final void resumeï¼ˆï¼‰ï¼› //ä½¿è¢«æŒ‚èµ·çš„å½“å‰ç»„å†…çš„çº¿ç¨‹æ¢å¤åˆ°å¯è¿è¡ŒçŠ¶æ€
+public final void setDaemon (boolean daemon); //æŒ‡å®šä¸€ä¸ªçº¿ç¨‹ä¸ºå½“å‰çº¿ç¨‹ç»„çš„ç›‘æŠ¤çº¿ç¨‹
+public final void setMaxPriorityï¼ˆint priï¼‰ï¼› //è®¾ç½®å½“å‰çº¿ç¨‹ç»„å…è®¸çš„æœ€å¤§ä¼˜å…ˆçº§
+public final void stopï¼ˆï¼‰ï¼›//ç»ˆæ­¢å½“å‰çº¿ç¨‹ç»„ä¸­æ‰€æœ‰çº¿ç¨‹
+public final void suspendï¼ˆï¼‰; //æŒ‚èµ·å½“å‰çº¿ç¨‹ç»„ä¸­æ‰€æœ‰çº¿ç¨‹
+public String toStrinngï¼ˆï¼‰; //å°†å½“å‰çº¿ç¨‹ç»„è½¬æ¢ä¸ºStringç±»çš„å¯¹è±¡

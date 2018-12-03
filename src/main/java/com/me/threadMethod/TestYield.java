@@ -1,28 +1,28 @@
 package com.me.threadMethod;
 /**
- * yield()·½·¨Ê¹µÃµ±Ç°Ïß³ÌÈÃ³ö´¦ÀíÆ÷×ÊÔ´
- * @author ¹ùÇåÃ÷
+ * yield()æ–¹æ³•ä½¿å¾—å½“å‰çº¿ç¨‹è®©å‡ºå¤„ç†å™¨èµ„æº
+ * @author éƒ­æ¸…æ˜
  *
  */
 public class TestYield {
-	public static void main(String[] args){
-		
-		Thread thread1 = new Thread(new Task(),"123");
-		Thread thread2 = new Thread(new Task(),"123456789");
-		
-		thread1.start();
-		thread2.start();
-	}
+    public static void main(String[] args){
+        
+        Thread thread1 = new Thread(new Task(),"123");
+        Thread thread2 = new Thread(new Task(),"123456789");
+        
+        thread1.start();
+        thread2.start();
+    }
 }
  
 class Task implements Runnable {
-	public void run() {
-		System.out.println(Thread.currentThread().getName()+"¿ªÊ¼");
-		for(int i=0;i<100;i++){
-			System.out.println(Thread.currentThread().getName()+"["+i+"]");
-			Thread.yield();
-		}
-		System.out.println(Thread.currentThread().getName()+"½áÊø");
+    public void run() {
+        System.out.println(Thread.currentThread().getName()+"å¼€å§‹");
+        for(int i=0;i<100;i++){
+            System.out.println(Thread.currentThread().getName()+"["+i+"]");
+            Thread.yield();
+        }
+        System.out.println(Thread.currentThread().getName()+"ç»“æŸ");
 
-	}
+    }
 }

@@ -3,26 +3,26 @@ package com.me.semaphone;
 import java.util.concurrent.Semaphore;
 
 public class People {
-	private int money;
-	//´´½¨ĞÅºÅÁ¿Îª1£¬ÊµÏÖÏß³ÌÍ¬²½
-	public static Semaphore semaphore = new Semaphore(1);
+    private int money;
+    //åˆ›å»ºä¿¡å·é‡ä¸º1ï¼Œå®ç°çº¿ç¨‹åŒæ­¥
+    public static Semaphore semaphore = new Semaphore(1);
 
-	public People(int money) {
-		this.money = money;
-	}
+    public People(int money) {
+        this.money = money;
+    }
 
-	public void add() {
-		try {
-			semaphore.acquire();
-			money = money + 1;
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} finally {
-			semaphore.release();
-		}
-	}
+    public void add() {
+        try {
+            semaphore.acquire();
+            money = money + 1;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            semaphore.release();
+        }
+    }
 
-	public int getMoney() {
-		return money;
-	}
+    public int getMoney() {
+        return money;
+    }
 }

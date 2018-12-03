@@ -1,7 +1,7 @@
 package com.me.daemon;
 /**
- * ÊØ»¤Ïß³Ì
- * @author ¹ùÇåÃ÷
+ * å®ˆæŠ¤çº¿ç¨‹
+ * @author éƒ­æ¸…æ˜
  *
  */
 public class DaemonThread {

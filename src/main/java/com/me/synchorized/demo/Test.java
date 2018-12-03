@@ -3,17 +3,17 @@ package com.me.synchorized.demo;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /**
- * µ±µ÷ÓÃÒ»¸ö¶ÔÏóÉÏµÄÍ¬²½ÊµÀı·½·¨Ê±£¬Ïß³ÌÎª¸Ã¶ÔÏó¼ÓËø£¨ÒşÊ½¼ÓËø£©
- * µ±µ÷ÓÃÒ»¸öÀàÉÏµÄÍ¬²½¾²Ì¬·½·¨Ê±£¬Ïß³ÌÎªÀà¼ÓËø£¨ÒşÊ½¼ÓËø£©
- * µ±Ö´ĞĞ·½·¨µÄÍ¬²½Óï¾ä¿éÊÇ£¬²»½ö¿ÉÒÔÊÇthis,»¹¿ÉÒÔÊÇÎªÈÎºÎ¶ÔÏó¼ÓËø£¨ÒşÊ½¼ÓËø£©
- * @author ¹ùÇåÃ÷
+ * å½“è°ƒç”¨ä¸€ä¸ªå¯¹è±¡ä¸Šçš„åŒæ­¥å®ä¾‹æ–¹æ³•æ—¶ï¼Œçº¿ç¨‹ä¸ºè¯¥å¯¹è±¡åŠ é”ï¼ˆéšå¼åŠ é”ï¼‰
+ * å½“è°ƒç”¨ä¸€ä¸ªç±»ä¸Šçš„åŒæ­¥é™æ€æ–¹æ³•æ—¶ï¼Œçº¿ç¨‹ä¸ºç±»åŠ é”ï¼ˆéšå¼åŠ é”ï¼‰
+ * å½“æ‰§è¡Œæ–¹æ³•çš„åŒæ­¥è¯­å¥å—æ˜¯ï¼Œä¸ä»…å¯ä»¥æ˜¯this,è¿˜å¯ä»¥æ˜¯ä¸ºä»»ä½•å¯¹è±¡åŠ é”ï¼ˆéšå¼åŠ é”ï¼‰
+ * @author éƒ­æ¸…æ˜
  *
  */
 public class Test {
 	public static void main(String[] args){
 		ExecutorService service = Executors.newFixedThreadPool(10);
 		People people = new People(100);
-		//10¸öÏß³ÌÆô¶¯×ªÕËÈÎÎñ
+		//10ä¸ªçº¿ç¨‹å¯åŠ¨è½¬è´¦ä»»åŠ¡
 		service.submit(new ChangeMoneyTask(people));
 		service.submit(new ChangeMoneyTask(people));
 		service.submit(new ChangeMoneyTask(people));

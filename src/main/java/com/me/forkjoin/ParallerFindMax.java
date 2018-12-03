@@ -7,9 +7,9 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
 /**
- * ²¢ĞĞÕÒ×î´óÖµ
+ * å¹¶è¡Œæ‰¾æœ€å¤§å€¼
  * 
- * @author ¹ùÇåÃ÷
+ * @author éƒ­æ¸…æ˜
  *
  */
 public class ParallerFindMax {
@@ -34,16 +34,16 @@ public class ParallerFindMax {
 	}
 
 	public static int findMax(List<Integer> list, int head, int tail) {
-		// ´´½¨ÈÎÎñ
+		// åˆ›å»ºä»»åŠ¡
 		RecursiveTask<Integer> findTask = new FindTask(list, head, tail);
 
-		// ´´½¨Ïß³Ì³Ø
+		// åˆ›å»ºçº¿ç¨‹æ± 
 		ForkJoinPool pool = new ForkJoinPool();
 		return pool.invoke(findTask);
 	}
 
 	/**
-	 * ¼Ì³ĞRecursiveTask£¬ÓÃÀ´¶¨ÒåÓĞ·µ»ØÖµµÃÈÎÎñ
+	 * ç»§æ‰¿RecursiveTaskï¼Œç”¨æ¥å®šä¹‰æœ‰è¿”å›å€¼å¾—ä»»åŠ¡
 	 * 
 	 * @author gqm
 	 *
@@ -65,7 +65,7 @@ public class ParallerFindMax {
 		@Override
 		protected Integer compute() {
 
-			// ÔÊĞíÖ´ĞĞµÄ×î´óÊı¾İÁ¿
+			// å…è®¸æ‰§è¡Œçš„æœ€å¤§æ•°æ®é‡
 			if (length < THRESHOLD) {
 				Integer max = list.get(head);
 				for (int i = head; i <= tail; i++) {
@@ -78,14 +78,14 @@ public class ParallerFindMax {
 				int firstHalf = (secondHalf + head) / 2;
 				int thirdHalf = (secondHalf + tail) / 2;
 
-				// ´´½¨·Ö½âÈÎÎñ
+				// åˆ›å»ºåˆ†è§£ä»»åŠ¡
 				FindTask first = new FindTask(list, head, firstHalf);
 				FindTask second = new FindTask(list, firstHalf, secondHalf);
 				FindTask third = new FindTask(list, secondHalf, thirdHalf);
 				FindTask fourth = new FindTask(list, thirdHalf, tail);
 
 				
-				// invokeAllÒ²ÊÇµ÷ÓÃµÄfork·½·¨·Ö½âÈÎÎñÖ´ĞĞ
+				// invokeAllä¹Ÿæ˜¯è°ƒç”¨çš„forkæ–¹æ³•åˆ†è§£ä»»åŠ¡æ‰§è¡Œ
 				// invokeAll(first, second, third, fourth);
 
 				first.fork();
@@ -93,7 +93,7 @@ public class ParallerFindMax {
 				third.fork();
 				fourth.fork();
 
-				// »ñÈ¡·µ»ØÖµ
+				// è·å–è¿”å›å€¼
 				Integer a = first.join();
 				Integer b = second.join();
 				Integer c = third.join();

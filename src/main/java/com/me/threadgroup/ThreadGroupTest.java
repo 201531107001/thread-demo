@@ -1,52 +1,52 @@
 package com.me.threadgroup;
 
 /**
- * ÔÚjavaÖÐÎªÁË·½±ãÏß³Ì¹ÜÀí³öÏÖÁËÏß³Ì×éThreadGroupµÄ¸ÅÄî£¬Ã¿¸öThreadGroup¿ÉÒÔÍ¬Ê±°üº¬¶à¸ö×ÓÏß³ÌºÍ¶à¸ö×ÓÏß³Ì×é£¬
- * ÔÚÒ»¸ö½ø³ÌÖÐÏß³Ì×éÊÇÒÔÊ÷ÐÎµÄ·½Ê½´æÔÚ£¬Í¨³£Çé¿öÏÂ¸ùÏß³Ì×éÊÇsystem¡£systemÏß³Ì×éÏÂÊÇmainÏß³Ì×é£¬Ä¬ÈÏÇé¿öÏÂµÚÒ»¼¶Ó¦
- * ÓÃ×Ô¼ºµÄÏß³Ì×éÊÇÍ¨¹ýmainÏß³Ì×é´´½¨³öÀ´µÄ¡£
- * @author ÇåÃ÷
+ * åœ¨javaä¸­ä¸ºäº†æ–¹ä¾¿çº¿ç¨‹ç®¡ç†å‡ºçŽ°äº†çº¿ç¨‹ç»„ThreadGroupçš„æ¦‚å¿µï¼Œæ¯ä¸ªThreadGroupå¯ä»¥åŒæ—¶åŒ…å«å¤šä¸ªå­çº¿ç¨‹å’Œå¤šä¸ªå­çº¿ç¨‹ç»„ï¼Œ
+ * åœ¨ä¸€ä¸ªè¿›ç¨‹ä¸­çº¿ç¨‹ç»„æ˜¯ä»¥æ ‘å½¢çš„æ–¹å¼å­˜åœ¨ï¼Œé€šå¸¸æƒ…å†µä¸‹æ ¹çº¿ç¨‹ç»„æ˜¯systemã€‚systemçº¿ç¨‹ç»„ä¸‹æ˜¯mainçº¿ç¨‹ç»„ï¼Œé»˜è®¤æƒ…å†µä¸‹ç¬¬ä¸€çº§åº”
+ * ç”¨è‡ªå·±çš„çº¿ç¨‹ç»„æ˜¯é€šè¿‡mainçº¿ç¨‹ç»„åˆ›å»ºå‡ºæ¥çš„ã€‚
+ * @author æ¸…æ˜Ž
  *
  */
 public class ThreadGroupTest {
 
-	public static void main(String[] args) throws InterruptedException {
-		// Ö÷Ïß³Ì¶ÔÓ¦µÄÏß³Ì×é
-		printGroupInfo(Thread.currentThread());// Ïß³Ì×éÎªmain¸¸Ïß³Ì×éÎªsystem
+    public static void main(String[] args) throws InterruptedException {
+        // ä¸»çº¿ç¨‹å¯¹åº”çš„çº¿ç¨‹ç»„
+        printGroupInfo(Thread.currentThread());// çº¿ç¨‹ç»„ä¸ºmainçˆ¶çº¿ç¨‹ç»„ä¸ºsystem
 
-		// ÐÂ½¨Ïß³Ì£¬ÏµÍ³Ä¬ÈÏµÄÏß³Ì×é
-		Thread appThread = new Thread(() -> {}, "appThread");
-		printGroupInfo(appThread);// Ïß³Ì×éÎªmain¸¸Ïß³Ì×éÎªsystem
+        // æ–°å»ºçº¿ç¨‹ï¼Œç³»ç»Ÿé»˜è®¤çš„çº¿ç¨‹ç»„
+        Thread appThread = new Thread(() -> {}, "appThread");
+        printGroupInfo(appThread);// çº¿ç¨‹ç»„ä¸ºmainçˆ¶çº¿ç¨‹ç»„ä¸ºsystem
 
-		// ×Ô¶¨ÒåÏß³Ì×é
-		ThreadGroup factoryGroup = new ThreadGroup("factory");
-		Thread workerThread = new Thread(factoryGroup, () -> {}, "worker");
-		printGroupInfo(workerThread);// Ïß³Ì×éÎªfactory£¬¸¸Ïß³Ì×éÎªmain
+        // è‡ªå®šä¹‰çº¿ç¨‹ç»„
+        ThreadGroup factoryGroup = new ThreadGroup("factory");
+        Thread workerThread = new Thread(factoryGroup, () -> {}, "worker");
+        printGroupInfo(workerThread);// çº¿ç¨‹ç»„ä¸ºfactoryï¼Œçˆ¶çº¿ç¨‹ç»„ä¸ºmain
 
-		// ÉèÖÃ¸¸Ïß³Ì×é
-		ThreadGroup deviceGroup = new ThreadGroup(factoryGroup, "device");
-		Thread pcThread = new Thread(deviceGroup, () -> {}, "pc");
-		printGroupInfo(pcThread);// Ïß³Ì×éÎªdevice£¬¸¸Ïß³Ì×éÎªfactory
+        // è®¾ç½®çˆ¶çº¿ç¨‹ç»„
+        ThreadGroup deviceGroup = new ThreadGroup(factoryGroup, "device");
+        Thread pcThread = new Thread(deviceGroup, () -> {}, "pc");
+        printGroupInfo(pcThread);// çº¿ç¨‹ç»„ä¸ºdeviceï¼Œçˆ¶çº¿ç¨‹ç»„ä¸ºfactory
 
-	}
+    }
 
-	static void printGroupInfo(Thread t) {
-		ThreadGroup group = t.getThreadGroup();
-		System.out.println("thread " + t.getName() + " group name is " + group.getName() 
-				+ " max priority is "+ group.getMaxPriority() 
-				+ " thread count is " + group.activeCount() 
-				+ " parent group is " + (group.getParent() == null ? null : group.getParent().getName()));
+    static void printGroupInfo(Thread t) {
+        ThreadGroup group = t.getThreadGroup();
+        System.out.println("thread " + t.getName() + " group name is " + group.getName() 
+                + " max priority is "+ group.getMaxPriority() 
+                + " thread count is " + group.activeCount() 
+                + " parent group is " + (group.getParent() == null ? null : group.getParent().getName()));
 
-		ThreadGroup parent = group;
-		do {
-			ThreadGroup current = parent;
-			parent = parent.getParent();
-			if (parent == null) {
-				break;
-			}
-			System.out.println(current.getName() + " Group's  parent group name is " + parent.getName());
+        ThreadGroup parent = group;
+        do {
+            ThreadGroup current = parent;
+            parent = parent.getParent();
+            if (parent == null) {
+                break;
+            }
+            System.out.println(current.getName() + " Group's  parent group name is " + parent.getName());
 
-		} while (true);
-		System.out.println("--------------------------");
-	}
+        } while (true);
+        System.out.println("--------------------------");
+    }
 
 }

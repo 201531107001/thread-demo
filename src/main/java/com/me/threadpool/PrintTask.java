@@ -1,27 +1,27 @@
 package com.me.threadpool;
 
 /**
- * ÈÎÎñÀà£¬¹©Ïß³ÌÔËĞĞ
+ * ä»»åŠ¡ç±»ï¼Œä¾›çº¿ç¨‹è¿è¡Œ
  * @author gqm
  *
  */
 public class PrintTask implements Runnable{
-	private String str = null;
-	
-	public PrintTask(String string) {
-		this.str = string;
-	}
-	
-	/** 
-	 * Êä³ö500¸ö×Ö·û
-	 */
-	@Override
-	public void run() {
-		for(int i=0;i<500;i++){
-			System.out.print(str);
-			if(i%20==0) 
-				System.out.println();
-		}
-		System.out.println(str+"´òÓ¡Íê±Ï");
-	}
+    private String str = null;
+    
+    public PrintTask(String string) {
+        this.str = string;
+    }
+    
+    /** 
+     * è¾“å‡º500ä¸ªå­—ç¬¦
+     */
+    @Override
+    public void run() {
+        for(int i=0;i<500;i++){
+            System.out.print(str);
+            if(i%20==0) 
+                System.out.println();
+        }
+        System.out.println(str+"æ‰“å°å®Œæ¯•");
+    }
 }

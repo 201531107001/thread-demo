@@ -6,9 +6,9 @@ import java.util.concurrent.Executors;
 
 
 /**
- * ÔÚ1.5Ö®Ç°£¬ÎŞËøºÍÌõ¼ş£¬Ïß³Ì¼äµÄÍ¨ĞÅÊÇÍ¨¹ı¼àÊÓÆ÷
- * javaµÄÈÎºÎ¶ÔÏó¶¼¿ÉÒÔÊÇ¼àÊÓÆ÷
- * @author ¹ùÇåÃ÷
+ * åœ¨1.5ä¹‹å‰ï¼Œæ— é”å’Œæ¡ä»¶ï¼Œçº¿ç¨‹é—´çš„é€šä¿¡æ˜¯é€šè¿‡ç›‘è§†å™¨
+ * javaçš„ä»»ä½•å¯¹è±¡éƒ½å¯ä»¥æ˜¯ç›‘è§†å™¨
+ * @author éƒ­æ¸…æ˜
  *
  */
 public class TestMonitor {
@@ -16,14 +16,14 @@ public class TestMonitor {
 		ExecutorService service = Executors.newFixedThreadPool(10);
 		People people = new People(0);
 		
-		//¼ÓÇ®
+		//åŠ é’±
 		service.submit(new AccountTask(people, true));
 		service.submit(new AccountTask(people, true));
 		service.submit(new AccountTask(people, true));
 		service.submit(new AccountTask(people, true));
 		service.submit(new AccountTask(people, true));
 		
-		//¼õÇ®
+		//å‡é’±
 		service.submit(new AccountTask(people, false));
 		service.submit(new AccountTask(people, false));
 		service.submit(new AccountTask(people, false));

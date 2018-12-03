@@ -4,8 +4,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Îª³ÌĞòÏÔÊ¾¼ÓËø
- * @author ¹ùÇåÃ÷
+ * ä¸ºç¨‹åºæ˜¾ç¤ºåŠ é”
+ * @author éƒ­æ¸…æ˜
  *
  */
 public class Test {
@@ -13,14 +13,14 @@ public class Test {
 		ExecutorService service = Executors.newFixedThreadPool(10);
 		People people = new People(0);
 		
-		//¼ÓÇ®
+		//åŠ é’±
 		service.submit(new AccountTask(people, true));
 		service.submit(new AccountTask(people, true));
 		service.submit(new AccountTask(people, true));
 		service.submit(new AccountTask(people, true));
 		service.submit(new AccountTask(people, true));
 		
-		//¼õÇ®
+		//å‡é’±
 		service.submit(new AccountTask(people, false));
 		service.submit(new AccountTask(people, false));
 		service.submit(new AccountTask(people, false));

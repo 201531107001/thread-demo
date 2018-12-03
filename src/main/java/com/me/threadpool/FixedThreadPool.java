@@ -6,8 +6,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * ´´½¨Ïß³Ì³ØÔËĞĞÈÎÎñ
- * @author ¹ùÇåÃ÷
+ * åˆ›å»ºçº¿ç¨‹æ± è¿è¡Œä»»åŠ¡
+ * @author éƒ­æ¸…æ˜
  *
  */
 public class FixedThreadPool {
@@ -19,10 +19,10 @@ public class FixedThreadPool {
 	}
 	
 	/**
-	 * ececute·½·¨Ö´ĞĞÎŞ·µ»ØÖµµÄÈÎÎñ
+	 * ececuteæ–¹æ³•æ‰§è¡Œæ— è¿”å›å€¼çš„ä»»åŠ¡
 	 */
 	public static void excuteMethod(){
-		//Éú³ÉÏß³Ì³Ø´óĞ¡Îª5,Èç¹ûÌí¼ÓÈÎÎñ´óÓÚ5£¬Ôò¶àÓàµÄÈÎÎñĞèÒªµÈ´ıÆäËûÈÎÎñÖ´ĞĞÍê
+		//ç”Ÿæˆçº¿ç¨‹æ± å¤§å°ä¸º5,å¦‚æœæ·»åŠ ä»»åŠ¡å¤§äº5ï¼Œåˆ™å¤šä½™çš„ä»»åŠ¡éœ€è¦ç­‰å¾…å…¶ä»–ä»»åŠ¡æ‰§è¡Œå®Œ
 		ExecutorService service = Executors.newFixedThreadPool(5);
 		 
 		service.execute(new PrintTask("a"));
@@ -33,17 +33,17 @@ public class FixedThreadPool {
 		service.execute(new PrintTask("f"));
 		
 		
-		//¹Ø±Õ·şÎñ£¬²»ÔÙÌí¼ÓÈÎÎñ
+		//å…³é—­æœåŠ¡ï¼Œä¸å†æ·»åŠ ä»»åŠ¡
 		service.shutdown();
-		//¹Ø±Õ·şÎñ£¬Í£Ö¹ËùÓĞÈÎÎñ
+		//å…³é—­æœåŠ¡ï¼Œåœæ­¢æ‰€æœ‰ä»»åŠ¡
 		//service.shutdownNow();
 	}
 	
 	/**
-	 * submit½«ÈÎÎñ½»¸øRunnableFuture£¬È»ºóµ÷ÓÃexcuteÖ´ĞĞ£¬ÓÃÀ´´¦ÀíÓĞ·µ»ØÖµµÄÈÎÎñ
+	 * submitå°†ä»»åŠ¡äº¤ç»™RunnableFutureï¼Œç„¶åè°ƒç”¨excuteæ‰§è¡Œï¼Œç”¨æ¥å¤„ç†æœ‰è¿”å›å€¼çš„ä»»åŠ¡
 	 */ 
 	public static void submitMethod(){
-		//Éú³ÉÏß³Ì³Ø´óĞ¡Îª5
+		//ç”Ÿæˆçº¿ç¨‹æ± å¤§å°ä¸º5
 		ExecutorService service = Executors.newFixedThreadPool(5);
 		
 		Future<Integer> future1 = (Future<Integer>) service.submit(new ReturnTask(5));
@@ -53,7 +53,7 @@ public class FixedThreadPool {
 		Future<Integer> future5 = (Future<Integer>) service.submit(new ReturnTask(9));
 		
 		
-		//¹Ø±Õ·şÎñ£¬²»ÔÙÌí¼ÓÈÎÎñ
+		//å…³é—­æœåŠ¡ï¼Œä¸å†æ·»åŠ ä»»åŠ¡
 		service.shutdown(); 
 		
 		try {
@@ -68,7 +68,7 @@ public class FixedThreadPool {
 			e.printStackTrace();
 		}
 		
-		//¹Ø±Õ·şÎñ£¬Í£Ö¹ËùÓĞÈÎÎñ
+		//å…³é—­æœåŠ¡ï¼Œåœæ­¢æ‰€æœ‰ä»»åŠ¡
 		//service.shutdownNow();
 	}
 }

@@ -1,24 +1,24 @@
 package com.me.synchorized.demo;
 
 public class People {
-	private int money;
-	
-	public People(int money) {
-		this.money = money;
-	}
-	
-	public synchronized void add() {
-		money = money + 1;
-	}
-	
-//	//”Î…œ√Ê∑Ω∑®µ»º€
-//	public void add() {
-//		synchronized (this) {
-//			money = money + 1;
-//		}
-//	}
-	
-	public int getMoney(){
-		return money;
-	}
+    private int money;
+    
+    public People(int money) {
+        this.money = money;
+    }
+    
+    public synchronized void add() {
+        money = money + 1;
+    }
+    
+//  //‰∏é‰∏äÈù¢ÊñπÊ≥ïÁ≠â‰ª∑
+//  public void add() {
+//      synchronized (this) {
+//          money = money + 1;
+//      }
+//  }
+    
+    public int getMoney(){
+        return money;
+    }
 }

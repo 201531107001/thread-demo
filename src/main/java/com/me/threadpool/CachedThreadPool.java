@@ -4,14 +4,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * ¿É¶¯Ì¬´´½¨Ïß³ÌµÄÏß³Ì³Ø£¬Èç¹ûÒ»¸öÏß³Ì60ÃëÄÚÃ»ÓĞÊ¹ÓÃ£¬¾ÍdestroyËü
+ * å¯åŠ¨æ€åˆ›å»ºçº¿ç¨‹çš„çº¿ç¨‹æ± ï¼Œå¦‚æœä¸€ä¸ªçº¿ç¨‹60ç§’å†…æ²¡æœ‰ä½¿ç”¨ï¼Œå°±destroyå®ƒ
  * @author gqm
  *
  */
 public class CachedThreadPool {
 	
 	public static void main(String[] args) {
-		//´´½¨Ïß³ÌµÄÏß³Ì³Ø
+		//åˆ›å»ºçº¿ç¨‹çš„çº¿ç¨‹æ± 
 		ExecutorService service = Executors.newCachedThreadPool();
 		 
 		service.execute(new PrintTask("a"));

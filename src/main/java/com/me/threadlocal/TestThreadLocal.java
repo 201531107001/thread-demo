@@ -1,37 +1,37 @@
 package com.me.threadlocal;
 
 /**
- * ThreadLocal Ïß³Ì±¾µØ±äÁ¿£¬Ëµ°×ÁË¾ÍÊÇÕë¶ÔÒ»¸ö±äÁ¿£¬Ëû»á±»¶à¸öÏß³ÌÊ¹ÓÃ£¬µ«ÊÇÃ¿¸öÏß³ÌÊ¹ÓÃµÄÖµÓÖ²»Ò»Ñù£¬ÎªÁË±ÜÃâ³öÏÖÏß³ÌÍ¬²½ÎÊÌâ£¬ËùÒÔ¿ÉÒÔÊ¹ÓÃ
- * ThreadLocal,ÕâÑùËäÈ»Ê¹ÓÃµÄÊÇÍ¬Ò»¸ö±äÁ¿£¬µ«ÊÇÔÚÃ¿¸öÏß³ÌËûÃÇµÄÖµÊÇ²»Ò»ÑùµÄ£¬ÊÇÓÉµ±Ç°Ïß³Ì¾ö¶¨µÄ¡£
+ * ThreadLocal çº¿ç¨‹æœ¬åœ°å˜é‡ï¼Œè¯´ç™½äº†å°±æ˜¯é’ˆå¯¹ä¸€ä¸ªå˜é‡ï¼Œä»–ä¼šè¢«å¤šä¸ªçº¿ç¨‹ä½¿ç”¨ï¼Œä½†æ˜¯æ¯ä¸ªçº¿ç¨‹ä½¿ç”¨çš„å€¼åˆä¸ä¸€æ ·ï¼Œä¸ºäº†é¿å…å‡ºç°çº¿ç¨‹åŒæ­¥é—®é¢˜ï¼Œæ‰€ä»¥å¯ä»¥ä½¿ç”¨
+ * ThreadLocal,è¿™æ ·è™½ç„¶ä½¿ç”¨çš„æ˜¯åŒä¸€ä¸ªå˜é‡ï¼Œä½†æ˜¯åœ¨æ¯ä¸ªçº¿ç¨‹ä»–ä»¬çš„å€¼æ˜¯ä¸ä¸€æ ·çš„ï¼Œæ˜¯ç”±å½“å‰çº¿ç¨‹å†³å®šçš„ã€‚
  * @author gqm
  *
  */
 public class TestThreadLocal {
-	
-	public static final ThreadLocal<String> threadLocal = new ThreadLocal<>();
-	
-	public static void main(String[] args) {
-		
-		Thread thread1 = new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				threadLocal.set(Thread.currentThread().getName());
-				System.out.println("threadLocal:"+threadLocal.get());
-			}
-		},"thread1");
-		Thread thread2 = new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				threadLocal.set(Thread.currentThread().getName());
-				System.out.println("threadLocal:"+threadLocal.get());
-			}
-		},"thread2");
-		
-		thread1.start();
-		thread2.start();
-		
-		
-	}
+    
+    public static final ThreadLocal<String> threadLocal = new ThreadLocal<>();
+    
+    public static void main(String[] args) {
+        
+        Thread thread1 = new Thread(new Runnable() {
+            
+            @Override
+            public void run() {
+                threadLocal.set(Thread.currentThread().getName());
+                System.out.println("threadLocal:"+threadLocal.get());
+            }
+        },"thread1");
+        Thread thread2 = new Thread(new Runnable() {
+            
+            @Override
+            public void run() {
+                threadLocal.set(Thread.currentThread().getName());
+                System.out.println("threadLocal:"+threadLocal.get());
+            }
+        },"thread2");
+        
+        thread1.start();
+        thread2.start();
+        
+        
+    }
 }

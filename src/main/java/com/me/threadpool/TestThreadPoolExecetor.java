@@ -5,8 +5,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Executors类的底层实现便是ThreadPoolExecutor,根据参数不同创建不同的线程池
- * 查看博客http://dongxuan.iteye.com/blog/901689#bc2382115
+ * Executors绫荤殑搴曞眰瀹炵幇渚挎槸ThreadPoolExecutor,鏍规嵁鍙傛暟涓嶅悓鍒涘缓涓嶅悓鐨勭嚎绋嬫睜
+ * 鏌ョ湅鍗氬http://dongxuan.iteye.com/blog/901689#bc2382115
  * @author gqm
  *
  */

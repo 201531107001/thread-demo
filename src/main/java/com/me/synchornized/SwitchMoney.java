@@ -2,54 +2,54 @@ package com.me.synchornized;
 
 
 /**
- * Í¬²½Óë»¥³â
- * @author ¹ùÇåÃ÷
+ * åŒæ­¥ä¸äº’æ–¥
+ * @author éƒ­æ¸…æ˜
  *
  */
 public class SwitchMoney {
-	public People people[] = new People[100];
-	private Object lock = new Object();
-	
-	public static void main(String[] args) {
-		SwitchMoney sMoney = new SwitchMoney();
-		for(int i=0;i<100;i++){
-			SwitchTask task = new SwitchTask(i, sMoney);
-			new Thread(task).start();
-		}
-	}
-	
-	public SwitchMoney(){
-		for(int i=0;i<100;i++)
-			people[i] = new People(100);		
-	}
-	
-	public void switchMoney(int from, int to, int amount) {
-		synchronized (lock) {
-//			if (people[from].getMonet() < amount)
-//				return;
-			//µ±Ìõ¼ş²»Âú×ãÊ±£¬½«ÈÎÎñ¹ÒÆğ£¬½µµÍÏß³Ì»ñÈ¡ËøµÄ¿ªÏú
-			while (people[from].getMoney() < amount) {
-				try {
-					//½«Ïß³Ì·ÅÈëwait set
-					lock.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			people[from].sub(amount);
-			people[to].add(amount);
-			System.out.println(people[to].getMoney());
-			System.out.println("Ç®µÄ×ÜÊı" + getTotalMoney());	
-			//»½ĞÑµÈ´ıµÄÏß³Ì
-			lock.notifyAll();
-		}
+    public People people[] = new People[100];
+    private Object lock = new Object();
+    
+    public static void main(String[] args) {
+        SwitchMoney sMoney = new SwitchMoney();
+        for(int i=0;i<100;i++){
+            SwitchTask task = new SwitchTask(i, sMoney);
+            new Thread(task).start();
+        }
+    }
+    
+    public SwitchMoney(){
+        for(int i=0;i<100;i++)
+            people[i] = new People(100);        
+    }
+    
+    public void switchMoney(int from, int to, int amount) {
+        synchronized (lock) {
+//          if (people[from].getMonet() < amount)
+//              return;
+            //å½“æ¡ä»¶ä¸æ»¡è¶³æ—¶ï¼Œå°†ä»»åŠ¡æŒ‚èµ·ï¼Œé™ä½çº¿ç¨‹è·å–é”çš„å¼€é”€
+            while (people[from].getMoney() < amount) {
+                try {
+                    //å°†çº¿ç¨‹æ”¾å…¥wait set
+                    lock.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            people[from].sub(amount);
+            people[to].add(amount);
+            System.out.println(people[to].getMoney());
+            System.out.println("é’±çš„æ€»æ•°" + getTotalMoney());   
+            //å”¤é†’ç­‰å¾…çš„çº¿ç¨‹
+            lock.notifyAll();
+        }
 
-	}
-	
-	public int getTotalMoney() {
-		int totalMonet = 0;
-		for(int i=0;i<100;i++)
-			totalMonet+=people[i].getMoney();
-		return totalMonet;
-	}
+    }
+    
+    public int getTotalMoney() {
+        int totalMonet = 0;
+        for(int i=0;i<100;i++)
+            totalMonet+=people[i].getMoney();
+        return totalMonet;
+    }
 }

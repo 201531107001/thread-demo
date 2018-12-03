@@ -7,7 +7,7 @@ import java.util.Random;
 public class ThreadGroupDemo {
 
 	public static void main(String[] args) throws InterruptedException {
-		// 创建5个线程，并入group里面进行管理
+		// 鍒涘缓5涓嚎绋嬶紝骞跺叆group閲岄潰杩涜绠＄悊
 		ThreadGroup threadGroup = new ThreadGroup("threadGroupTest");
 		for (int i = 0; i < 5; i++) {
 			Thread thread = new Thread(threadGroup, () -> {
@@ -26,14 +26,14 @@ public class ThreadGroupDemo {
 			//TimeUnit.SECONDS.sleep(1);
 		}
 		
-		// group信息
+		// group淇℃伅
 		System.out.printf("Number of Threads: %d\n", threadGroup.activeCount());
 		System.out.printf("Information about the Thread Group\n");
 		threadGroup.list();
 
 		System.out.println("---------------------------------------");
 		
-		// 复制group的thread信息
+		// 澶嶅埗group鐨則hread淇℃伅
 		Thread[] threads = new Thread[threadGroup.activeCount()];
 		threadGroup.enumerate(threads);
 		for (int i = 0; i < threadGroup.activeCount(); i++) {
@@ -41,7 +41,7 @@ public class ThreadGroupDemo {
 		}
 		
 		System.out.println("-------------------------------------");
-		// 等待结束
+		// 绛夊緟缁撴潫
 		while (threadGroup.activeCount() > 9) {
 			try {
 				TimeUnit.SECONDS.sleep(1);
@@ -49,7 +49,7 @@ public class ThreadGroupDemo {
 				e.printStackTrace();
 			}
 		}
-		// 中断group中的线程
+		// 涓柇group涓殑绾跨▼
 		threadGroup.interrupt();
 	}
 }

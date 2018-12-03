@@ -8,72 +8,72 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
 /**
- * ²¢ĞĞ¹é²¢ÅÅĞò
+ * å¹¶è¡Œå½’å¹¶æ’åº
  * 
- * @author ¹ùÇåÃ÷
+ * @author éƒ­æ¸…æ˜
  *
  */
 public class ParallelMargeSort {
-	
-	public static void main(String[] args) {
-		int[] list = new int[10000];
-		Random random = new Random();
-		for(int i=0;i<10000;i++) {
-			int a = random.nextInt()%10000;
-			list[i] = a;
-		}
-		
-		parallelMargeSort(list);
-		for(int i=0;i<list.length;i++) {
-			System.out.print(list[i]+" ");
-			if((i+1) % 20 == 0 )
-				System.out.println();
-		}
-	}
+    
+    public static void main(String[] args) {
+        int[] list = new int[10000];
+        Random random = new Random();
+        for(int i=0;i<10000;i++) {
+            int a = random.nextInt()%10000;
+            list[i] = a;
+        }
+        
+        parallelMargeSort(list);
+        for(int i=0;i<list.length;i++) {
+            System.out.print(list[i]+" ");
+            if((i+1) % 20 == 0 )
+                System.out.println();
+        }
+    }
 
-	public static void parallelMargeSort(int[] list) {
-		//´´½¨ÈÎÎñ
-		RecursiveAction recursiveAction = new SortTesk(list);
+    public static void parallelMargeSort(int[] list) {
+        //åˆ›å»ºä»»åŠ¡
+        RecursiveAction recursiveAction = new SortTesk(list);
 
-		//Ö´ĞĞÈÎÎñµÄÏß³Ì³Ø
-		ForkJoinPool pool = new ForkJoinPool();
-		pool.invoke(recursiveAction);
-	}
+        //æ‰§è¡Œä»»åŠ¡çš„çº¿ç¨‹æ± 
+        ForkJoinPool pool = new ForkJoinPool();
+        pool.invoke(recursiveAction);
+    }
 
-	/**
-	 * ¼Ì³ĞRecursiveAction£¬ÓÃÀ´¶¨ÒåÎŞ·µ»ØÖµµÄÈÎÎñ
-	 * @author gqm
-	 *
-	 */
-	private static class SortTesk extends RecursiveAction {
-		
-		private static final long serialVersionUID = 1L;
-		private int[] list;
-		private final int THRESHOLD = 500;
+    /**
+     * ç»§æ‰¿RecursiveActionï¼Œç”¨æ¥å®šä¹‰æ— è¿”å›å€¼çš„ä»»åŠ¡
+     * @author gqm
+     *
+     */
+    private static class SortTesk extends RecursiveAction {
+        
+        private static final long serialVersionUID = 1L;
+        private int[] list;
+        private final int THRESHOLD = 500;
 
-		public SortTesk(int[] list) {
-			this.list = list;
-		}
+        public SortTesk(int[] list) {
+            this.list = list;
+        }
 
-		@Override
-		protected void compute() {
-			//ÔÊĞíÖ´ĞĞµÄ×î´óÈÎÎñ£¬·ñÔò½«ÈÎÎñ·Ö½â
-			if (list.length <= THRESHOLD) {
-				Arrays.sort(list);
-			} else {
-				int firstLength = list.length / 2;
-				int[] firstHalf = new int[firstLength];
-				System.arraycopy(list, 0, firstHalf, 0, firstLength);
+        @Override
+        protected void compute() {
+            //å…è®¸æ‰§è¡Œçš„æœ€å¤§ä»»åŠ¡ï¼Œå¦åˆ™å°†ä»»åŠ¡åˆ†è§£
+            if (list.length <= THRESHOLD) {
+                Arrays.sort(list);
+            } else {
+                int firstLength = list.length / 2;
+                int[] firstHalf = new int[firstLength];
+                System.arraycopy(list, 0, firstHalf, 0, firstLength);
 
-				int secondLength = list.length - firstLength;
-				int[] secondHalf = new int[secondLength];
-				System.arraycopy(list, firstLength, secondHalf, 0, secondLength);
+                int secondLength = list.length - firstLength;
+                int[] secondHalf = new int[secondLength];
+                System.arraycopy(list, firstLength, secondHalf, 0, secondLength);
 
-				//·Ö½âÈÎÎñ£¬ÈÎÎñÍê³Éºó·µ»Ø
-				invokeAll(new SortTesk(firstHalf), new SortTesk(secondHalf));
-				MargeSort.marge(list, firstHalf, secondHalf);
-			}
-		}
+                //åˆ†è§£ä»»åŠ¡ï¼Œä»»åŠ¡å®Œæˆåè¿”å›
+                invokeAll(new SortTesk(firstHalf), new SortTesk(secondHalf));
+                MargeSort.marge(list, firstHalf, secondHalf);
+            }
+        }
 
-	}
+    }
 }

@@ -4,10 +4,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Semaphone �ź�����ֻ�л���źŵ��߳̿��Լ���ִ�У������߳���������������һ��������Դ���̷߳�����
- * acquire() ��ȡ�źţ��ź�����1�����Ϊ�����߳�����
- * release() �ͷ��źţ��ź�����1
- * @author ������
+ * Semaphone 信号量，只有获得信号的线程可以继续执行，否则线程阻塞。可以限制一个共享资源的线程访问数
+ * acquire() 获取信号，信号量减1，如果为空则线程阻塞
+ * release() 释放信号，信号量加1
+ * @author 郭清明
  *
  */
 public class Test {

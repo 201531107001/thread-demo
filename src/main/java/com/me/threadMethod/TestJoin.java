@@ -1,35 +1,35 @@
 package com.me.threadMethod;
 import java.util.*;
 /**
- * join()·½·¨Ê¹µÃËùÓĞÏß³Ì¶¼µÈ´ıµ±Ç°Ïß³ÌÖ´ĞĞÍê³É
+ * join()æ–¹æ³•ä½¿å¾—æ‰€æœ‰çº¿ç¨‹éƒ½ç­‰å¾…å½“å‰çº¿ç¨‹æ‰§è¡Œå®Œæˆ
  * 
- * @author ¹ùÇåÃ÷
+ * @author éƒ­æ¸…æ˜
  *
  */
 public class TestJoin {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		Thread thread1 = new Thread(new Task1(), "123");
-		Thread.currentThread().setName("main");
+        Thread thread1 = new Thread(new Task1(), "123");
+        Thread.currentThread().setName("main");
 
-		thread1.start();
-		//µÈ´ıthread1Ïß³ÌÖ´ĞĞÍê³É
-		try {
-			thread1.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		for(int i=0;i<100;i++){
-			System.out.println("main"+i);
-		}
-	}
+        thread1.start();
+        //ç­‰å¾…thread1çº¿ç¨‹æ‰§è¡Œå®Œæˆ
+        try {
+            thread1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        for(int i=0;i<100;i++){
+            System.out.println("main"+i);
+        }
+    }
 }
 
 class Task1 implements Runnable {
-	@Override
-	public void run() {
-		for(int i=0;i<100;i++){
-			System.out.println(Thread.currentThread().getName()+i);
-		}
-	}
+    @Override
+    public void run() {
+        for(int i=0;i<100;i++){
+            System.out.println(Thread.currentThread().getName()+i);
+        }
+    }
 }
