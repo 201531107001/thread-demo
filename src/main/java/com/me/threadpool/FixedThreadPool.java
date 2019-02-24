@@ -7,6 +7,7 @@ import java.util.concurrent.Future;
 
 /**
  * 创建线程池运行任务
+ * 队列采用LinkedBlockingQueue（阻塞队列）实现，有容量，即当线程数达到最大值，就不会创建线程了
  * @author 郭清明
  *
  */
@@ -46,11 +47,11 @@ public class FixedThreadPool {
 		//生成线程池大小为5
 		ExecutorService service = Executors.newFixedThreadPool(5);
 		
-		Future<Integer> future1 = (Future<Integer>) service.submit(new ReturnTask(5));
-		Future<Integer> future2 = (Future<Integer>) service.submit(new ReturnTask(6));
-		Future<Integer> future3 = (Future<Integer>) service.submit(new ReturnTask(7));
-		Future<Integer> future4 = (Future<Integer>) service.submit(new ReturnTask(8));
-		Future<Integer> future5 = (Future<Integer>) service.submit(new ReturnTask(9));
+		Future<Integer> future1 = service.submit(new ReturnTask(5));
+		Future<Integer> future2 = service.submit(new ReturnTask(6));
+		Future<Integer> future3 = service.submit(new ReturnTask(7));
+		Future<Integer> future4 = service.submit(new ReturnTask(8));
+		Future<Integer> future5 = service.submit(new ReturnTask(9));
 		
 		
 		//关闭服务，不再添加任务

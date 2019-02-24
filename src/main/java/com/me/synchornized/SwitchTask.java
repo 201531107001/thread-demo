@@ -1,13 +1,15 @@
 package com.me.synchornized;
 
-
+/**
+ * 支付金钱线程
+ */
 public class SwitchTask implements Runnable{
-    private int from;
+    private int id;
     private SwitchMoney switchMoney;
     
-    public SwitchTask(int from, SwitchMoney switchMoney) {
+    public SwitchTask(int id, SwitchMoney switchMoney) {
         super();
-        this.from = from;
+        this.id = id;
         this.switchMoney = switchMoney;
     }
 
@@ -16,11 +18,10 @@ public class SwitchTask implements Runnable{
         while(true){
             int to = (int)(Math.random()*100);
             int amount = (int)(Math.random()*10);
-            switchMoney.switchMoney(from, to, amount);
+            switchMoney.switchMoney(id, to, amount);
             try {
-                Thread.sleep((int)(Math.random()*10));
+                Thread.sleep((int)(Math.random()%10));
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

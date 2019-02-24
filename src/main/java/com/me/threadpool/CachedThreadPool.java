@@ -5,6 +5,8 @@ import java.util.concurrent.Executors;
 
 /**
  * 可动态创建线程的线程池，如果一个线程60秒内没有使用，就destroy它
+ * 执行任务的线程数量是无限的，重要有任务，就会创建线程去执行任务，准确的说最多为Integer.MAX_VALUE
+ * 使用SynchronousQueue队列实现任务的存储，只能存储一个任务，它必须有线程消耗掉才会存储另一个任务
  * @author gqm
  *
  */

@@ -3,8 +3,6 @@ package com.me.monitor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
-
 /**
  * 在1.5之前，无锁和条件，线程间的通信是通过监视器
  * java的任何对象都可以是监视器
@@ -32,7 +30,9 @@ public class TestMonitor {
 		
 		service.shutdown();
 		
-		while(!service.isTerminated());
+		while(!service.isTerminated()){
+
+		}
 		
 		System.out.println("main"+people.getMoney());
 	}

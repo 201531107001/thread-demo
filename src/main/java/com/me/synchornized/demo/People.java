@@ -1,4 +1,4 @@
-package com.me.synchorized.demo;
+package com.me.synchornized.demo;
 
 public class People {
     private int money;

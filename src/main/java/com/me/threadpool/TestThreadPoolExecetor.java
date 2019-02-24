@@ -14,7 +14,9 @@ public class TestThreadPoolExecetor {
 	
 	public static void main(String[] args) {
 		
-		ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 5, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(5));
+		ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
+				5, 5, 0,
+				TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(5));
 		
 		threadPoolExecutor.execute(new PrintTask("a"));
 		threadPoolExecutor.execute(new PrintTask("b"));

@@ -9,7 +9,7 @@ package com.me.synchornized;
 public class SwitchMoney {
     public People people[] = new People[100];
     private Object lock = new Object();
-    
+
     public static void main(String[] args) {
         SwitchMoney sMoney = new SwitchMoney();
         for(int i=0;i<100;i++){
@@ -17,12 +17,18 @@ public class SwitchMoney {
             new Thread(task).start();
         }
     }
-    
+
     public SwitchMoney(){
         for(int i=0;i<100;i++)
-            people[i] = new People(100);        
+            people[i] = new People(100);
     }
-    
+
+    /**
+     * 支付金钱
+     * @param from 支付人
+     * @param to 收款人
+     * @param amount 金额
+     */
     public void switchMoney(int from, int to, int amount) {
         synchronized (lock) {
 //          if (people[from].getMonet() < amount)
@@ -39,13 +45,13 @@ public class SwitchMoney {
             people[from].sub(amount);
             people[to].add(amount);
             System.out.println(people[to].getMoney());
-            System.out.println("钱的总数" + getTotalMoney());   
+            System.out.println("钱的总数" + getTotalMoney());
             //唤醒等待的线程
             lock.notifyAll();
         }
 
     }
-    
+
     public int getTotalMoney() {
         int totalMonet = 0;
         for(int i=0;i<100;i++)
