@@ -1,4 +1,4 @@
-package com.me.lock;
+package com.me.lock.reentrantlock;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

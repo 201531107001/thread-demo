@@ -1,4 +1,4 @@
-package com.me.lock;
+package com.me.lock.reentrantlock;
 
 public class AccountTask implements Runnable {
     People people;

@@ -1,4 +1,4 @@
-package com.me.lock;
+package com.me.lock.reentrantlock;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class People {
 	private int money;
+	// ReentrantLock 可重入锁，独享锁
 	public static Lock lock = new ReentrantLock();
 	public static Condition condition = lock.newCondition();
 
