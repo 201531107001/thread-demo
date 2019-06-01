@@ -14,9 +14,9 @@ import java.util.concurrent.Future;
 public class FixedThreadPool {
 	
 	public static void main(String[] args) {
-		FixedThreadPool.excuteMethod();
+		//FixedThreadPool.excuteMethod();
 		
-		//FixedThreadPool.submitMethod();
+		FixedThreadPool.submitMethod();
 	}
 	
 	/**
