@@ -6,6 +6,8 @@ import java.util.concurrent.CountDownLatch;
  * CountDownLaunch 线程同步器，用于多个线程执行完成后，主线程继续执行
  */
 public class Main {
+	private int sum1,sum2;
+
 	public static void main(String[] args) {
 		try {
 			new Main().execute();
@@ -16,25 +18,23 @@ public class Main {
 
 	public void execute() throws InterruptedException {
 		int sum = 0;
-		final int[] sum1 = new int[1];
-		final int[] sum2 = new int[1];
 
 		// 参数的设置取决于执行的线程数
 		CountDownLatch countDownLatch = new CountDownLatch(2);
 
 		new Thread(()->{
-			sum1[0] = sum(1,100);
+			sum1 = sum(1,100);
 			countDownLatch.countDown();
 		}).start();
 
 		new Thread(()-> {
-			sum2[0] = sum(101,200);
+			sum2 = sum(101,200);
 			countDownLatch.countDown();
 		}).start();
 
 		// 等待上面两个线程执行完毕后，继续执行
 		countDownLatch.await();
-		sum = sum1[0] + sum2[0];
+		sum = sum1 + sum2;
 		System.out.println(sum);
 	}
 
